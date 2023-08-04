@@ -1,16 +1,25 @@
+using MoodAnalyzerProblem;
+
 namespace MoodAnalyzerTest
 {
     public class Tests
     {
-        [SetUp]
-        public void Setup()
-        {
-        }
-
+        MoodAnalyzer analyzer = new MoodAnalyzer();
         [Test]
-        public void Test1()
+        public void GivenSadMessage_WhenAnalyze_ShouldReturnTurnSad()
         {
-            Assert.Pass();
+            string message = " I Am In Sad Mood";
+            string actual = analyzer.AnalyzeMood(message);
+            Assert.AreEqual(actual,"SAD");
+
+        }
+        [Test]
+        public void GivenAnyMessage_WhenAnalyze_ShouldReturnTurnHappy()
+        {
+            string message = " I Am In Any Mood";
+            string actual = analyzer.AnalyzeMood(message);
+            Assert.AreEqual(actual,"HAPPY");
+
         }
     }
 }
